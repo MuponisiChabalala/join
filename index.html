@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MONEYSPREAD CORP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0fc70d1.js" crossorigin="anonymous"></script> <!-- Font Awesome for icon -->
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      font-family: 'Rajdhani', sans-serif;
+      color: white;
+      overflow-x: hidden;
+      padding: 2rem;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      animation: fadeIn 2s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+      color: #fff;
+      opacity: 0.9;
+    }
+
+    .gold-text {
+      color: #FFD700;
+      margin: 2rem auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 700px;
+      font-weight: 500;
+    }
+
+    form {
+      margin-top: 3rem;
+      max-width: 600px;
+      margin-inline: auto;
+      text-align: left;
+      padding: 2rem;
+      border-radius: 12px;
+      background: rgba(255, 215, 0, 0.05);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background-color: #111;
+      color: white;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: #FFD700;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+    }
+
+    form button:hover {
+      background-color: #e6c200;
+    }
+
+    .bottom-details {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #888;
+      opacity: 0.6;
+      text-align: center;
+    }
+
+    .treasure-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: radial-gradient(circle at center, #FFD70033, transparent 70%);
+      animation: chestOpen 2s ease-in-out forwards;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    @keyframes chestOpen {
+      0% {
+        opacity: 0.9;
+        transform: scale(1.2);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      }
+      to {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      }
+    }
+
+    /* Confirmation popup */
+    .popup {
+      display: none;
+      background-color: #111;
+      color: #FFD700;
+      padding: 1rem 2rem;
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      form {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="treasure-overlay"></div>
+  <div class="popup" id="popup">✅ Message Sent Successfully!</div>
+
+  <div class="container">
+    <h1>MONEYSPREAD CORPORATION</h1>
+    <h2>A CORPORATION FOR THE MILLIONAIRES & BILLIONAIRES</h2>
+
+    <p class="gold-text">
+      At 10,000 followers, MoneySpread will launch a series of powerful eBooks tailored to what <em>you</em>, our members, truly want to explore — from tech and finance to lifestyle and beyond. We're building a collective of experts from all industries. DM us your interests and join the future of intelligent wealth. When we drop, you'll want in.
+    </p>
+
+    <!-- 💬 Contact Form -->
+    <form id="contactForm" action="https://formspree.io/f/xdkdekry" method="POST">
+      <label for="email">Your Email:</label>
+      <input type="email" name="email" id="email" required placeholder="your@email.com">
+
+      <label for="message">Your Message:</label>
+      <textarea name="message" id="message" rows="5" required placeholder="What would you like to learn from our eBooks?"></textarea>
+
+      <button type="submit">
+        <i class="fas fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+
+    <div class="bottom-details">
+      © 2025 MoneySpread Corp. All Rights Reserved. | Connect via Instagram DMs | Promotions only – not financial advice.
+    </div>
+  </div>
+
+  <script>
+    // Confirmation Popup
+    const form = document.getElementById('contactForm');
+    const popup = document.getElementById('popup');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          popup.style.display = 'block';
+          setTimeout(() => popup.style.display = 'none', 3000);
+          form.reset();
+        } else {
+          alert("There was an error submitting the form.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
