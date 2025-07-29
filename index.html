@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MONEYSPREAD CORP</title>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a2e0fc70d1.js" crossorigin="anonymous"></script> <!-- Font Awesome for icon -->
+  <script src="https://kit.fontawesome.com/a2e0fc70d1.js" crossorigin="anonymous"></script>
 
   <!-- ✅ Google Analytics Tracking Code -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RV9BCT8EQ8"></script>
@@ -17,19 +17,35 @@
   </script>
 
   <style>
-    /* (unchanged CSS) */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      background-color: #000;
       font-family: 'Rajdhani', sans-serif;
       color: white;
       overflow-x: hidden;
       padding: 2rem;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
     }
+
+    /* Background image with low opacity overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url("Home - Villon.jpeg") no-repeat center center fixed;
+      background-size: cover;
+      opacity: 0.25;
+      z-index: -1;
+    }
+
     .container {
       text-align: center;
       max-width: 800px;
