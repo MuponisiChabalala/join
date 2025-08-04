@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MONEYSPREAD CORP</title>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a2e0fc70d1.js" crossorigin="anonymous"></script> <!-- Font Awesome for icon -->
-
-  <!-- ✅ Google Analytics Tracking Code -->
+  <script src="https://kit.fontawesome.com/a2e0fc70d1.js" crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RV9BCT8EQ8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -17,16 +15,15 @@
   </script>
 
   <style>
-    /* (unchanged CSS) */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      background-color: #000;
+      background-color: #0a0a0a;
       font-family: 'Rajdhani', sans-serif;
-      color: white;
+      color: #f0e6c8;
       overflow-x: hidden;
       padding: 2rem;
     }
@@ -38,24 +35,45 @@
       opacity: 0;
     }
     h1 {
-      font-size: 3rem;
-      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2);
+      font-size: 3.2rem;
       letter-spacing: 2px;
+      color: #FFD700;
+      text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFD700,
+        0 0 20px #ffcc00,
+        0 0 40px #ffcc00;
+      animation: glowText 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes glowText {
+      from {
+        text-shadow:
+          0 0 5px #FFD700,
+          0 0 10px #FFD700,
+          0 0 15px #ffcc00;
+      }
+      to {
+        text-shadow:
+          0 0 10px #ffcc00,
+          0 0 20px #ffcc00,
+          0 0 40px #ffcc00;
+      }
     }
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-top: 0.5rem;
-      color: #fff;
+      color: #d6c873;
       opacity: 0.9;
     }
     .gold-text {
-      color: #FFD700;
+      color: #e6c200;
       margin: 2rem auto;
       font-size: 1.1rem;
       line-height: 1.7;
       max-width: 700px;
       font-weight: 500;
     }
+
     form {
       margin-top: 3rem;
       max-width: 600px;
@@ -63,8 +81,8 @@
       text-align: left;
       padding: 2rem;
       border-radius: 12px;
-      background: rgba(255, 215, 0, 0.05);
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      background: rgba(255, 215, 0, 0.08);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
       animation: glow 2s ease-in-out infinite alternate;
     }
     form label {
@@ -79,11 +97,25 @@
       padding: 10px;
       border: none;
       border-radius: 8px;
-      margin-bottom: 1rem;
-      background-color: #111;
+      margin-bottom: 1.5rem;
+      background-color: #1a1a1a;
       color: white;
       font-size: 1rem;
+      position: relative;
     }
+    form input::placeholder,
+    form textarea::placeholder {
+      color: #aaa;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    form input:focus::placeholder,
+    form input:not(:placeholder-shown)::placeholder,
+    form textarea:focus::placeholder,
+    form textarea:not(:placeholder-shown)::placeholder {
+      transform: translateX(-10px) translateY(-10px);
+      opacity: 0;
+    }
+
     form button {
       background-color: #FFD700;
       color: black;
@@ -101,6 +133,7 @@
     form button:hover {
       background-color: #e6c200;
     }
+
     .bottom-details {
       margin-top: 3rem;
       font-size: 0.8rem;
@@ -108,13 +141,14 @@
       opacity: 0.6;
       text-align: center;
     }
+
     .treasure-overlay {
       position: absolute;
       top: 0;
       left: 0;
       height: 100vh;
       width: 100vw;
-      background: radial-gradient(circle at center, #FFD70033, transparent 70%);
+      background: radial-gradient(circle at center, #FFD70022, transparent 70%);
       animation: chestOpen 2s ease-in-out forwards;
       z-index: 10;
       pointer-events: none;
@@ -142,9 +176,10 @@
         box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
       }
     }
+
     .popup {
       display: none;
-      background-color: #111;
+      background-color: #1a1a1a;
       color: #FFD700;
       padding: 1rem 2rem;
       border: 2px solid #FFD700;
@@ -155,11 +190,18 @@
       transform: translateX(-50%);
       z-index: 100;
       font-weight: bold;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+      animation: popupGlow 2s ease-in-out infinite alternate;
     }
+
+    @keyframes popupGlow {
+      from { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+      to { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+    }
+
     @media (max-width: 600px) {
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       h2 {
         font-size: 1rem;
@@ -172,7 +214,7 @@
 </head>
 <body>
   <div class="treasure-overlay"></div>
-  <div class="popup" id="popup">✅ Message Sent Successfully!</div>
+  <div class="popup" id="popup">✅ Your message is in motion</div>
 
   <div class="container">
     <h1>MONEYSPREAD CORPORATION</h1>
