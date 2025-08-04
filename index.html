@@ -37,26 +37,26 @@
     h1 {
       font-size: 3.2rem;
       letter-spacing: 2px;
-      color: #FFD700;
+      color: #ffffff; /* white text */
       text-shadow:
-        0 0 5px #FFD700,
-        0 0 10px #FFD700,
-        0 0 20px #ffcc00,
-        0 0 40px #ffcc00;
+        0 0 5px #ffffff,
+        0 0 15px #ffffff,
+        0 0 30px #e6e6e6,
+        0 0 60px #cccccc;
       animation: glowText 2.5s ease-in-out infinite alternate;
     }
     @keyframes glowText {
       from {
         text-shadow:
-          0 0 5px #FFD700,
-          0 0 10px #FFD700,
-          0 0 15px #ffcc00;
+          0 0 5px #ffffff,
+          0 0 15px #ffffff,
+          0 0 25px #e6e6e6;
       }
       to {
         text-shadow:
-          0 0 10px #ffcc00,
-          0 0 20px #ffcc00,
-          0 0 40px #ffcc00;
+          0 0 15px #ffffff,
+          0 0 30px #e6e6e6,
+          0 0 60px #cccccc;
       }
     }
     h2 {
@@ -91,8 +91,7 @@
       font-size: 1rem;
       color: #fff;
     }
-    form input,
-    form textarea {
+    form input, form textarea {
       width: 100%;
       padding: 10px;
       border: none;
@@ -101,10 +100,9 @@
       background-color: #1a1a1a;
       color: white;
       font-size: 1rem;
-      position: relative;
     }
-    form input::placeholder,
-    form textarea::placeholder {
+
+    form input::placeholder, form textarea::placeholder {
       color: #aaa;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
@@ -154,27 +152,13 @@
       pointer-events: none;
     }
     @keyframes chestOpen {
-      0% {
-        opacity: 0.9;
-        transform: scale(1.2);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(1);
-      }
+      0% { opacity:0.9; transform:scale(1.2); }
+      100%{ opacity:0; transform:scale(1); }
     }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
+    @keyframes fadeIn { to{ opacity:1;}}
     @keyframes glow {
-      from {
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
-      }
-      to {
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-      }
+      from { box-shadow:0 0 10px rgba(255,215,0,0.2);}
+      to   { box-shadow:0 0 20px rgba(255,215,0,0.5);}
     }
 
     .popup {
@@ -193,22 +177,14 @@
       box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
       animation: popupGlow 2s ease-in-out infinite alternate;
     }
-
     @keyframes popupGlow {
-      from { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
-      to { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+      from { box-shadow: 0 0 10px rgba(255,215,0,0.3); }
+      to   { box-shadow: 0 0 20px rgba(255,215,0,0.6); }
     }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      h2 {
-        font-size: 1rem;
-      }
-      form {
-        padding: 1rem;
-      }
+    @media (max-width: 600px){
+      h1{font-size:2.2rem;}
+      h2{font-size:1rem;}
+      form{padding:1rem;}
     }
   </style>
 </head>
@@ -247,21 +223,18 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-
       const formData = new FormData(form);
 
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          popup.style.display = 'block';
-          setTimeout(() => popup.style.display = 'none', 3000);
+      fetch(form.action,{
+        method:'POST',
+        body:formData,
+        headers:{ 'Accept':'application/json'}
+      }).then(response=>{
+        if(response.ok){
+          popup.style.display='block';
+          setTimeout(()=>popup.style.display='none',3000);
           form.reset();
-        } else {
+        }else{
           alert("There was an error submitting the form.");
         }
       });
